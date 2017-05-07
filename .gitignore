@@ -31,7 +31,6 @@ phpunit.phar
 /phpunit.xml
 
 # assets of web
-/assets
 /.htaccess
 /index-test.php
 /index.php
