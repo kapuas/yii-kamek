@@ -33,10 +33,10 @@ return [
         'path' => 'dev',
         'setWritable' => [
             'dapur/runtime',
-            'dapur/web/assets',
+            'dapur/assetx',
             'dapur/assets',
+            'assets',
             'frontend/runtime',
-            'frontend/web/assets',
             'frontend/assets',
         ],
         'setExecutable' => [
