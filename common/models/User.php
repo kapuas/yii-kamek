@@ -27,6 +27,12 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    public $currentPassword;
+    public $newPassword;
+    public $newPasswordConfirm;
+
+    /**
+
     /**
      * @inheritdoc
      */
@@ -53,7 +59,36 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['newPassword', 'currentPassword', 'newPasswordConfirm'], 'required'],
+            [['currentPassword'], 'validateCurrentPassword'],
+
+            [['newPassword', 'newPasswordConfirm'], 'string', 'min' => 3],
+            [['newPassword', 'newPasswordConfirm'], 'filter',  'filter' => 'trim'],
+            [['newPasswordConfirm'], 'compare', 'compareAttribute' => 'newPassword', 'message' => 'Password Baru dan Konfirmasi Password Baru tidak cocok'],
         ];
+    }
+
+
+    public function attributeLabels()
+    {
+        return [
+            'currentPassword' => 'Password Saat Ini',
+            'newPassword' => 'Password Baru',
+            'newPasswordConfirm' => 'Ulangi Password Baru',
+        ];
+    }
+
+    public function validateCurrentPassword()
+    {
+        if(!$this->verifyPassword($this->currentPassword)){
+            $this->addError('currentPassword', 'Password salah');
+        }
+    }
+
+    public function verifyPassword($password)
+    {
+        $dbpassword = static::findOne(['username' => Yii::$app->user->identity->username, 'status' => self::STATUS_ACTIVE])->password_hash;
+        return Yii::$app->security->validatePassword($password, $dbpassword);
     }
 
     /**

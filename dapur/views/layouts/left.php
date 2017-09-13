@@ -41,7 +41,7 @@
                         'items' => [
                             ['label' => 'Kategori', 'icon' => 'filter', 'url' => ['/kategori'],],
                             ['label' => 'Berita', 'icon' => 'newspaper-o', 'url' => ['/berita'],],
-                            ['label' => 'ActiveRecord', 'icon' => 'database', 'url' => ['/berita/activerecord'],],
+                            // ['label' => 'ActiveRecord', 'icon' => 'database', 'url' => ['/berita/activerecord'],],
                             [
                                 'label' => 'Level One',
                                 'icon' => 'circle-o',

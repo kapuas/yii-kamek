@@ -8,6 +8,8 @@ use common\models\KategoriSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+
 
 /**
  * KategoriController implements the CRUD actions for Kategori model.
@@ -20,6 +22,18 @@ class KategoriController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index','create','view','update','delete'],
+                'rules' => [
+                    [
+                        'actions' => ['index','create','view','update','delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                  
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
