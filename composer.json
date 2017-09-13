@@ -1,6 +1,6 @@
 {
-    "name": "yiisoft/yii2-app-advanced",
-    "description": "Yii 2 Advanced Project Template",
+    "name": "kapuas/yii2-kamek",
+    "description": "Template untuk Belajar Yii2 Bahasa Indonesia",
     "keywords": ["yii2", "framework", "advanced", "project template"],
     "homepage": "http://www.yiiframework.com/",
     "type": "project",
