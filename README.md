@@ -7,7 +7,7 @@ Sebuah starter template untuk pengguna yii2 belajar dalam suatu kasus
 * Gunakan Composer
 
 ```
-$ php composer.phar create-project --prefer-dist kapuas/yii2-kamek plnyii
+$ php composer.phar create-project --prefer-dist kapuas/yii2-kamek namaaplikasi
 
 ```
 
