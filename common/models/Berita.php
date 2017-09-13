@@ -50,7 +50,7 @@ class Berita extends \yii\db\ActiveRecord
             'judul' => 'Judul',
             'tanggal' => 'Tanggal',
             'isi' => 'Isi',
-            'kategori_id' => 'Kategori ID',
+            'kategori_id' => 'Kategori Berita',
         ];
     }
 

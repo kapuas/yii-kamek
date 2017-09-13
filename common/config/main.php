@@ -10,6 +10,12 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-        ]
+        ],
+        'formatter' => [
+            'dateFormat' => 'dd-MM-Y',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => '.',
+            'currencyCode' => 'IDR',
+       ],
     ],
 ];

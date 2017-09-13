@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\models\Kategori;
+use yii\helpers\ArrayHelper;
+use dosamigos\datepicker\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\BeritaSearch */
@@ -22,7 +25,6 @@ $this->params['breadcrumbs'][] = $subtitle;
         <div class="box-body">
                <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
- 
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -30,11 +32,27 @@ $this->params['breadcrumbs'][] = $subtitle;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
             'judul',
-            'tanggal',
+            [
+                'attribute'=>'tanggal',
+                'value'=>'tanggal',
+                'format' => ['date', 'php:d-M-Y'],
+                'filter'=>DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'tanggal',
+                        'clientOptions' => [
+                            'autoclose' => true,
+                            'format' => 'yyyy-mm-dd'
+                        ]
+                ])
+            ],
             // 'isi:ntext',
-            'kategori_id',
+            [
+                'attribute'=>'kategori_id',
+                'value'=>'kategori.nama_kategori',
+                'filter'=>ArrayHelper::map(Kategori::find()->orderBy('id')->asArray()->all(), 'id', 'nama_kategori'),
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

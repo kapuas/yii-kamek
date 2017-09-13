@@ -31,16 +31,17 @@
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => 'Gii', 'icon' => 'paint-brush', 'url' => ['/gii']],
+                    ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Data',
-                        'icon' => 'share',
+                        'icon' => 'level-down',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Kategori', 'icon' => 'file-code-o', 'url' => ['/kategori'],],
-                            ['label' => 'Berita', 'icon' => 'dashboard', 'url' => ['/berita'],],
+                            ['label' => 'Kategori', 'icon' => 'filter', 'url' => ['/kategori'],],
+                            ['label' => 'Berita', 'icon' => 'newspaper-o', 'url' => ['/berita'],],
+                            ['label' => 'ActiveRecord', 'icon' => 'database', 'url' => ['/berita/activerecord'],],
                             [
                                 'label' => 'Level One',
                                 'icon' => 'circle-o',

@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "dmstr/yii2-adminlte-asset": "2.*",
-        "c006/yii2-migration-utility": "dev-master"
+        "c006/yii2-migration-utility": "dev-master",
+        "2amigos/yii2-date-picker-widget": "~1.0",
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

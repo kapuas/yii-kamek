@@ -6,9 +6,9 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Berita */
 
-$this->title = $model->id;
-$subtitle = 'Detail '.$model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Beritas', 'url' => ['index']];
+$this->title = 'Berita '.$model->judul;
+$subtitle = 'Detail Berita dengan id: '.$model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Berita', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="berita-view">
@@ -16,9 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="box-header">
             <h3 class="box-title"><?= Html::encode($subtitle) ?></h3>
             <div class="box-tools pull-right">
-                <?= Html::a('Ubah', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a('Ubah', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm']) ?>
                 <?= Html::a('Hapus', ['delete', 'id' => $model->id], [
-                    'class' => 'btn btn-danger',
+                    'class' => 'btn btn-danger btn-sm',
                     'data' => [
                         'confirm' => 'Anda yakin ingin menghapus item ini?',
                         'method' => 'post',
@@ -32,9 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'judul',
-            'tanggal',
+            [
+                'attribute'=>'tanggal',
+                'format' => ['date', 'php:d F Y'],
+            ],
             'isi:ntext',
-            'kategori_id',
+            'kategori.nama_kategori',
         ],
     ]) ?>
         </div>

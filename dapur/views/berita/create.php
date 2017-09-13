@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $subtitle;
 		<div class="box-body">
 	    	 <?= $this->render('_form', [
 		        'model' => $model,
+		        'kategori_list' => $kategori_list,
 		    ]) ?>
 			
 		</div>

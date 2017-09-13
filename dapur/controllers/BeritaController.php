@@ -4,10 +4,13 @@ namespace dapur\controllers;
 
 use Yii;
 use common\models\Berita;
+use common\models\Kategori;
 use common\models\BeritaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
+
 
 /**
  * BeritaController implements the CRUD actions for Berita model.
@@ -38,6 +41,7 @@ class BeritaController extends Controller
         $searchModel = new BeritaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -64,12 +68,15 @@ class BeritaController extends Controller
     public function actionCreate()
     {
         $model = new Berita();
+        $kategori_list = ArrayHelper::map(Kategori::find()->all(), 'id', 'nama_kategori');
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'kategori_list' => $kategori_list,
             ]);
         }
     }
