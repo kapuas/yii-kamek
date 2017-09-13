@@ -3,21 +3,14 @@
 Sebuah starter template untuk pengguna yii2 belajar dalam suatu kasus
 
 
-catatan: project ini belum rilis
-
-
 ## Instalasi
-* Sementara ini belum saya integrasikan dengan packagist, jadi silahkan gunakan git clone
+* Gunakan Composer
 
 ```
-$ git clone https://github.com/kapuas/yii-kamek.git
+$ php composer.phar create-project --prefer-dist kapuas/yii2-kamek plnyii
 
 ```
-* Lalu gunakan composer update
 
-```
-$ composer.phar update
-```
 
 * Lakukan php init lalu pilih development
 ```
