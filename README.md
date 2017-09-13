@@ -35,3 +35,8 @@ sedangkan untuk backend dengan masuk ke directory
 ```
 yourweb.domain/dapur
 ```
+Dengan username dan password
+```
+username: adminyii
+password: adminyii
+```

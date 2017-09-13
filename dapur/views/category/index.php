@@ -10,25 +10,31 @@ use yii\grid\GridView;
 $this->title = 'Categories';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="category-index">
+<div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title"><?= Html::encode($this->title) ?></h3>
+      <?= Html::a('Create Category', ['create'], ['class' => 'btn btn-success pull-right']) ?>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+      <div class="box-body">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-    <p>
-        <?= Html::a('Create Category', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+                'id',
+                'category_name',
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                ['class' => 'yii\grid\ActionColumn'],
+            ],
+        ]); ?>
+      </div>
+      <!-- /.box-body -->
 
-            'id',
-            'category_name',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+      <div class="box-footer">
+       Yii2-Kamek
+      </div>
 </div>
