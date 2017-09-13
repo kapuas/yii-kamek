@@ -5,21 +5,21 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "category".
+ * This is the model class for table "kategori".
  *
  * @property int $id
- * @property string $category_name
+ * @property string $nama_kategori
  *
- * @property Post[] $posts
+ * @property Berita[] $beritas
  */
-class Category extends \yii\db\ActiveRecord
+class Kategori extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'category';
+        return 'kategori';
     }
 
     /**
@@ -28,8 +28,8 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_name'], 'required'],
-            [['category_name'], 'string', 'max' => 255],
+            [['nama_kategori'], 'required'],
+            [['nama_kategori'], 'string', 'max' => 64],
         ];
     }
 
@@ -40,15 +40,15 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category_name' => 'Category Name',
+            'nama_kategori' => 'Nama Kategori',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPosts()
+    public function getBeritas()
     {
-        return $this->hasMany(Post::className(), ['category_id' => 'id']);
+        return $this->hasMany(Berita::className(), ['kategori_id' => 'id']);
     }
 }

@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Post;
+use common\models\Kategori;
 
 /**
- * PostSearch represents the model behind the search form of `common\models\Post`.
+ * KategoriSearch represents the model behind the search form of `common\models\Kategori`.
  */
-class PostSearch extends Post
+class KategoriSearch extends Kategori
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PostSearch extends Post
     public function rules()
     {
         return [
-            [['id', 'category_id'], 'integer'],
-            [['title', 'date', 'content'], 'safe'],
+            [['id'], 'integer'],
+            [['nama_kategori'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class PostSearch extends Post
      */
     public function search($params)
     {
-        $query = Post::find();
+        $query = Kategori::find();
 
         // add conditions that should always apply here
 
@@ -60,12 +60,9 @@ class PostSearch extends Post
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'date' => $this->date,
-            'category_id' => $this->category_id,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'content', $this->content]);
+        $query->andFilterWhere(['like', 'nama_kategori', $this->nama_kategori]);
 
         return $dataProvider;
     }

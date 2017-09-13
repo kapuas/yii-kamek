@@ -72,7 +72,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $berita = \common\models\Berita::find()->all();
+        return $this->render('index',['berita'=>$berita]);
     }
 
     /**

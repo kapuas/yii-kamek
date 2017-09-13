@@ -1,5 +1,7 @@
 <?php
 return [
+    'language' => 'id-ID',
+    'sourceLanguage' => 'id-ID',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'cache' => [
