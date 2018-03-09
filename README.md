@@ -1,3 +1,7 @@
+# Perhatian 
+Karena berbagai kendala maka proyek ini tidak di-maintain lagi. Silahkan jika hanya ingin menjadikan referensi saja, namun tidak direkomendasikan untuk dijadikan produksi
+---------------------------------------------------------------------------------------------------------------------
+
 # Yii2 kamek
 
 Sebuah starter template untuk pengguna yii2 belajar dalam suatu kasus
