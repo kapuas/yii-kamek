@@ -54,7 +54,10 @@ $this->params['breadcrumbs'][] = $subtitle;
                 'filter'=>ArrayHelper::map(Kategori::find()->orderBy('id')->asArray()->all(), 'id', 'nama_kategori'),
             ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                
+            ],
         ],
     ]); ?>
         </div>
